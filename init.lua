@@ -130,51 +130,10 @@ require('lazy').setup({
             opts = { signs = true }
         },
 
-        -- PERF: LSP
-        {
-            'neovim/nvim-lspconfig',
-            -- priority = 0,
-            dependencies = {
-                {
-                    'williamboman/mason.nvim',
-                    dependencies = {
-                        'williamboman/mason-lspconfig.nvim',
-                        'WhoIsSethDaniel/mason-tool-installer.nvim'
-                    },
-                    opts = {}
-                },
-                {
-                    'j-hui/fidget.nvim',
-                    opts = {
-                        notification = {
-                            window = {
-                                winblend = 40,
-                                border = "rounded",
-                            },
-                        }
-                    }
-                },
-                {
-                    "folke/lazydev.nvim",
-                    ft = "lua", -- only load on lua files
-                    opts = {
-                        library = {
-                            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                        },
-                    },
-                },
-            },
-            config = function()
-                local lspconfig = require('lspconfig')
-                lspconfig.lua_ls.setup {}
-
-                require "config.lspconfig"
-            end
-        },
-
         -- PERF: Autocompletion
         {
             "hrsh7th/nvim-cmp",
+            event = 'InsertEnter',
             dependencies = {
                 "hrsh7th/cmp-nvim-lsp",
                 "hrsh7th/cmp-buffer",
@@ -212,7 +171,8 @@ require('lazy').setup({
                 }
             end,
         },
-        -- PERF: Syntex highlights and other things
+
+        -- PERF: Syntex highlights and other
         {
             "nvim-treesitter/nvim-treesitter",
             build = ":TSUpdate",
@@ -230,6 +190,48 @@ require('lazy').setup({
                 },
             },
         },
+
+        -- PERF: LSP
+        {
+            'neovim/nvim-lspconfig',
+            dependencies = {
+                {
+                    'williamboman/mason.nvim',
+                    dependencies = {
+                        'williamboman/mason-lspconfig.nvim',
+                        'WhoIsSethDaniel/mason-tool-installer.nvim'
+                    },
+                    opts = {}
+                },
+                {
+                    'j-hui/fidget.nvim',
+                    opts = {
+                        notification = {
+                            window = {
+                                winblend = 40,
+                                border = "rounded",
+                            },
+                        }
+                    }
+                },
+                {
+                    "folke/lazydev.nvim",
+                    ft = "lua", -- only load on lua files
+                    opts = {
+                        library = {
+                            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                        }
+                    }
+                }
+            },
+            config = function()
+                local lspconfig = require('lspconfig')
+                lspconfig.lua_ls.setup {}
+
+                require "config.lspconfig"
+            end
+        },
+
         -- NOTE: Game for practice
         {
             "ThePrimeagen/vim-be-good",
