@@ -241,8 +241,11 @@ require('lazy').setup({
     { import = "plugins" },
 
     ---- [[ config ]] ----
-    checker = { enabled = true },
-    ui = { border = "rounded" }
+    checker = {
+        enabled = true,
+        frequency = 21600, -- check every 6hr
+        auto_install = true,
+    }
 })
 
 -- require("lazy").update({ show = true })
