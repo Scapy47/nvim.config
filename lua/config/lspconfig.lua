@@ -25,12 +25,11 @@ local servers = {
 
 -- TODO: add mason-tool-installer
 
-vim.tbl_map(function(server_name)
-    local config = servers[server_name]
+for server_name, config in ipairs(servers) do
     config.on_attach = on_attach
     config.capabilities = capabilities
     lspconfig[server_name].setup(config)
-end, vim.tbl_keys(servers))
+end
 
 require("mason-lspconfig").setup {
     automatic_installation = false,
