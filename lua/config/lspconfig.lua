@@ -25,11 +25,18 @@ local servers = {
 
 -- TODO: add mason-tool-installer
 
-for server_name, config in ipairs(servers) do
+for server_name, config in pairs(servers) do
     config.on_attach = on_attach
     config.capabilities = capabilities
     lspconfig[server_name].setup(config)
 end
+
+require("mason-tool-installer").setup {
+    ensure_installed = {},
+    integrations = {
+        ['mason-lspconfig'] = true
+    }
+}
 
 require("mason-lspconfig").setup {
     automatic_installation = false,
