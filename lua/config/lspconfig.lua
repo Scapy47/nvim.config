@@ -1,8 +1,9 @@
 local lspconfig = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+local capabilities = vim.tbl_deep_extend('force', {},
+    vim.lsp.protocol.make_client_capabilities(),
+    require('cmp_nvim_lsp').default_capabilities()
+)
 
 local function on_attach(client, bufnr)
     --  PERF: Format on save
@@ -17,11 +18,29 @@ local function on_attach(client, bufnr)
 end
 
 
-lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
+local servers = {
+    lua_ls = {},
+    clangd = {}
 }
-lspconfig.clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
+
+-- TODO: add mason-tool-installer
+
+vim.tbl_map(function(server_name)
+    local config = servers[server_name]
+    config.on_attach = on_attach
+    config.capabilities = capabilities
+    lspconfig[server_name].setup(config)
+end, vim.tbl_keys(servers))
+
+require("mason-lspconfig").setup {
+    automatic_installation = false,
+    ensure_installed = {}, -- explicitly empty (handled by mason-tool-installer)
+    handlers = {
+        function(server_name)
+            local server = servers[server_name] or {}
+            server.capabilities = capabilities
+            server.on_attach = on_attach
+            lspconfig[server_name].setup(server)
+        end
+    }
 }
