@@ -46,5 +46,7 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
+
+        require("config.keymap").telescope()
     end
 }
