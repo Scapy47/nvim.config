@@ -243,6 +243,7 @@ require('lazy').setup({
     -- PERF: showing available keybindings in a popup as you type
     {
         "folke/which-key.nvim",
+        enabled = false,
         event = "VeryLazy",
         opts = {},
         keys = {
