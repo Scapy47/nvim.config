@@ -3,14 +3,14 @@ return {
     {
         "nvzone/typr",
         dependencies = "nvzone/volt",
-        opts = {},
         cmd = { "Typr", "TyprStats" },
+        opts = {}
     },
     -- PERF: cursor animation
     {
         "sphamba/smear-cursor.nvim",
         event = 'VimEnter',
-        opts = {},
+        opts = {}
     },
     -- PERF: platformio
     {
@@ -29,6 +29,8 @@ return {
             "Piodebug",
             "Piodb",
         },
-        opts = {}
+        opts = {
+            lsp = "clangd"
+        }
     }
 }
