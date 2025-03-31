@@ -36,6 +36,7 @@ return {
     -- PERF: notification
     {
         "rcarriga/nvim-notify",
+        event = "veryLazy",
         config = function()
             vim.notify = require("notify")
         end
