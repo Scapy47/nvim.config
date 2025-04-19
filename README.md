@@ -1,6 +1,6 @@
 
 
-## Installation
+# Installation
 ![sh](https://skillicons.dev/icons?i=bash)
 [![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)](#)
 [![Zsh](https://img.shields.io/badge/Zsh-F15A24?logo=zsh&logoColor=fff)](#)
