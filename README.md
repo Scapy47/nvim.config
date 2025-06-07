@@ -7,10 +7,10 @@
 ```sh
 git clone https://github.com/Scapy47/nvim.config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim && nvim
 ```
-> run nvim to continue installation
+> Does everything automatically 
 
-**headless**
+**without running neovim**
 ```sh
-git clone https://github.com/Scapy47/nvim.config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim && nvim --headless
+git clone https://github.com/Scapy47/nvim.config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
-> Does everything automatically without display neovim screen
+> run nvim to continue installation
