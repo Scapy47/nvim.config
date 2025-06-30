@@ -109,7 +109,7 @@ require('lazy').setup({
     -- PERF: Theme
 
     {
-        "DonJulve/NeoCyberVim",
+        "Scapy47/SCARLET.nvim",
         priority = 1000,
         enabled = true,
         lazy = false,
