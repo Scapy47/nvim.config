@@ -37,9 +37,13 @@ return {
     {
         "folke/snacks.nvim",
         priority = 1000,
-        ---@type snacks.Config
         opts = {
+            notifier = {},
+            indent = {},
+            bigfile = {},
+            scroll = {},
             dashboard = require "config.startup_screen"
         }
-    }
+    },
+    -- { "echasnovski/mini.files", opts = {} }
 }
