@@ -35,10 +35,11 @@ return {
     },
     -- PERF: notification
     {
-        "rcarriga/nvim-notify",
-        event = "VeryLazy",
-        config = function()
-            vim.notify = require("notify")
-        end
+        "folke/snacks.nvim",
+        priority = 1000,
+        ---@type snacks.Config
+        opts = {
+            dashboard = require "config.startup_screen"
+        }
     }
 }
