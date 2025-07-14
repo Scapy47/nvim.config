@@ -5,7 +5,7 @@ return {
         options = {
             icons_enabled = vim.g.have_nerd_font,
             section_separators = {},
-            component_separators = { left = '', right = '' }
+            component_separators = {}
         },
         sections = {
             lualine_y = {
