@@ -64,6 +64,14 @@ return {
                     border = "rounded",
                 },
             },
+            mappings = {
+                explorer = {
+                    n = {
+                        ["<Esc><Esc>"] = "CloseView",
+                        ["<CR>"] = "Select",
+                    }
+                }
+            }
         }
     }
 }
