@@ -45,7 +45,7 @@ vim.opt.timeoutlen = 300
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = '» ',
+    tab = '↹ ',
     trail = '●',
     nbsp = '␣'
 }
