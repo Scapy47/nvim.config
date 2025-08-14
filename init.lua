@@ -223,18 +223,21 @@ require('lazy').setup({
         end,
     },
 
-    -- PERF: Syntex highlights and other
+    -- PERF: Syntex Parsing
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         main = "nvim-treesitter.configs",
         opts = {
-            ensure_installed = { 'bash', 'c', 'diff', 'html', 'css', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
             auto_install = true,
+            ensure_installed = { 'bash', 'c', 'diff', 'html', 'css', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+            
+            -- PERF: Syntax highlighting
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = { 'ruby' },
             },
+            -- PREF: Indentation
             indent = { enable = true, disable = { 'ruby' } },
         },
     },
