@@ -46,7 +46,7 @@ vim.opt.timeoutlen = 300
 vim.opt.list = true
 vim.opt.listchars = {
     tab = '» ',
-    trail = '·',
+    trail = '•',
     nbsp = '␣'
 }
 
