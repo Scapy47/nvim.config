@@ -23,7 +23,7 @@ vim.opt.wrap = true
 -- prevent words splitting
 vim.opt.linebreak = true
 -- line break indicator
-vim.opt.showbreak = "↪"
+vim.opt.showbreak = "➥"
 -- Enable break indent
 vim.opt.breakindent = true
 -- Save undo history
