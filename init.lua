@@ -70,7 +70,7 @@ for k, v in pairs(require "config.opt" or {}) do
 end
 
 -------------------------------
--- Basic Keymaps
+-- Keymaps
 -------------------------------
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -165,7 +165,7 @@ require('lazy').setup({
         opts = { signs = true }
     },
 
-    -- PERF: Autocompletion
+    -- PERF: Completion
     {
         "hrsh7th/nvim-cmp",
         event = 'InsertEnter',
