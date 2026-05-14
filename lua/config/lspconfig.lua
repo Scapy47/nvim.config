@@ -8,8 +8,8 @@ local capabilities = vim.tbl_deep_extend('force',
 ---@param bufnr integer
 local function on_attach(client, bufnr)
     --  PERF: Format on save
-    if client:supports_method('textDocument_formatting') then
-        vim.api.nvim_create_autocmd('bufWritePre', {
+    if client:supports_method('textDocument/formatting') then
+        vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
             group = vim.api.nvim_create_augroup("LspFormat" .. bufnr, { clear = true }),
             callback = function()
@@ -19,7 +19,7 @@ local function on_attach(client, bufnr)
     else
         vim.notify("Formatting is not supported. forcing autocommand", vim.log.levels.WARN)
 
-        vim.api.nvim_create_autocmd('bufWritePre', {
+        vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
             group = vim.api.nvim_create_augroup("LspFormat" .. bufnr, { clear = true }),
             callback = function()
