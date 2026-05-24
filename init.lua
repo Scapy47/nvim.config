@@ -132,6 +132,29 @@ require('lazy').setup({
 
     -- PERF: Theme
     {
+        "szymonwilczek/arete.nvim",
+        lazy = false,
+        priority = 1000,
+        ---@module 'arete.config'
+        opts = {
+            transparent = true,
+            cache = true,
+            styles = {
+                comments = { italic = false },
+                keywords = { bold = true },
+                types = { bold = true },
+                functions = { bold = true },
+                variables = { bold = true },
+            },
+            groups = {},
+        },
+        config = function(_, opts)
+            require("arete").setup(opts)
+            vim.cmd.colorscheme "tempus_night"
+        end,
+
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -149,6 +172,7 @@ require('lazy').setup({
     },
     {
         "rose-pine/neovim",
+        enabled = false,
         priority = 1000,
         lazy = false,
         opts = {

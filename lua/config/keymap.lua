@@ -21,6 +21,16 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
+
+        vim.keymap.set('n', '<leader>sth', function()
+            builtin.colorscheme(require('telescope.themes').get_ivy({
+                layout_config = {
+                    height = 0.4
+                },
+                enable_preview = true,
+                previewer = false,
+            }))
+        end, { desc = '[Th]eme picker' })
     end,
     completion = function()
 
